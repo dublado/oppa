@@ -1,0 +1,607 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Oppa! Design para todos </title>
+	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>
+
+	/*fim:THUMBS PRODUTOS*/
+	var cores =  ["rgb(73, 73, 81)","rgb(81, 181, 110)","rgb(90, 191, 203)","rgb(255, 173, 0)","rgb(131, 107, 170)","rgb(242, 242, 244)"];
+	function change_bgcolor(vseletor,vcor)
+	{
+		oseletor = $(vseletor).parent().parent().attr('id');
+
+		cor = $("#"+oseletor).css('background-color');
+		corindice = (cores.indexOf(cor));
+		switch(vcor)
+		{
+			case "left":
+
+			if( (corindice <= 0 ) ){
+				corindice = cores.length-1;
+			}
+				else{corindice--;
+			}
+
+			break;
+			case "right":
+
+			if( (corindice >= (cores.length-1) || (corindice==-1) ) ){
+				corindice = 0;
+			}
+			else{corindice++;}
+			break;
+		}
+		vcor = cores[corindice];
+		console.log(cor);
+		console.log(corindice);
+		console.log(vcor);
+		console.log(oseletor);
+		$( '#'+ oseletor ).css('background-color',vcor);
+	}
+	/*fim:THUMBS PRODUTOS*/
+
+
+
+	$(document).ready(function() 
+	{
+		/*THUMBS PRODUTOS*/
+		$('.thumb_prod').each(function(){
+			$(this).hover(function(){
+				$('.botao', this).show();
+				$('.info_prod', this).slideUp('fast');
+				$('.bx_vr_details', this).slideDown('fast');
+			}, function(){
+				$('.botao', this).hide();
+				$('.info_prod', this).slideDown();
+				$('.bx_vr_details', this).slideUp();
+			});
+		});
+
+
+		/*MENU CATEGOTIA*/
+		$('#down_btn').click(function()
+		{
+			vthis = $('#menu');
+			vthis_cnt = $('#menu #menu_cnt');
+			if(!vthis.attr('data-clicado'))
+			{
+				vthis.animate(
+				{
+					height : 244
+				}, 'fast');
+
+				vthis.attr('data-clicado', 'true');
+
+				vthis_cnt.fadeIn();
+			}
+			else
+			{
+				vthis_cnt.css('display','none');
+
+				vthis.removeAttr('data-clicado');
+
+				vthis.animate(
+				{
+					height : 0
+				}, 'fast');
+
+			}
+		});
+
+	});
+</script>
+
+
+
+<style type="text/css">
+<!--
+
+.page-title, .page-head, .page-head-alt {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px dotted #C7C7C7;
+    clear: both;
+    margin-bottom: 10px;
+    padding: 25px 0;
+    position: relative;
+    text-align: left;
+    text-indent: 0;
+    text-transform: inherit;
+    width: 100%;
+}
+.page-title h1, .page-title h2, .page-title h3, .page-head h1, .page-head h2, .page-head h3, .page-head-alt h1, .page-head-alt h2, .page-head-alt h3 {
+    color: black;
+    font: 30px/1em "BauerBodoniBlackItalicBTBlkIt",georgia;
+    text-transform: inherit;
+}
+
+h1.titulo{margin-bottom:20px;font:30px/1em BauerBodoniBlackItalicBTBlkIt,georgia;background:url(http://s3.amazonaws.com/doit-oppa/73.bg.png) repeat-x scroll 0 53px transparent;line-height:60px;float:left;width:96%;padding:0 2%}
+
+
+
+.atendimento-oppa{height:148px;width:924px;background:url(http://s3.amazonaws.com/doit-oppa/73.bg.png) repeat scroll 0 0 transparent;float:left;margin:25px 0;padding:26px 28px}
+.fitatop,.fita{position:absolute;width:250px;color:#FFF;height:25px;font:normal 12px FuturaMedium,sans-serif;}
+.fita{padding-bottom:20px;margin-bottom:25px}
+.atendimento-oppa p,#accordion-content{font-family:Georgia;font-style:italic;font-size:12px;}
+.fitatop .parag,.fita .parag{height:15px;background:url(http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/sprite.png) -741px -538px;line-height:16px;font:normal 12px FuturaMedium,sans-serif;z-index:9;position:relative;margin:5px 0 0 7px ;padding:5px 20px}
+.atendimento-oppa p{line-height:34px}
+.atendimento-oppa .atendimento-duv,.atendimento-oppa .atendimento-tel{float: left;height:98px;background:#FFF;}
+.atendimento-oppa .atendimento-tel{width:199px;margin-right:6px;padding:25px}
+.atendimento-oppa .atendimento-tel h1{font-size:25px;font-weight:600}
+.atendimento-oppa .atendimento-tel h1 sup{font-size:14px}
+.atendimento-oppa .atendimento-duv{width:600px;padding:25px 25px 25px 40px}
+.menu-left{float:left;width:270px}
+#center_accordion{float:right;width:631px;margin:0}
+#center_accordion .fita{margin:-68px 0 0 -68px}
+.fita a{text-decoration:none;color:#FFF;font-size:14px}
+.menu-left a{font:normal 12px FuturaMedium,sans-serif;text-decoration:none;list-style-type:none; color:#444444;}
+.menu-left li{list-style-image:url(images/bullet.jpg);line-height:24px}
+.menu-left ul { list-style: disc outside none; padding-left: 1.5em; }
+
+.fitaround{background:url(http://s3.amazonaws.com/doit-oppa/73.bg.png) repeat scroll 0 0 transparent;margin-bottom:30px;padding:50px 50px 25px}
+#accordion,#accordion2,#accordion3,#accordion4,#accordion5,#accordion6,#accordion7,#accordion8,#accordion9,#accordion10{background:#FFF}
+#accordion-content{color:#666;line-height:18px;margin:-5px 20px 20px 30px}
+#accordion h3,#accordion2 h3,#accordion3 h3,#accordion4 h3,#accordion5 h3,#accordion6 h3,#accordion7 h3,#accordion8 h3,#accordion9 h3,#accordion10 h3{background:url(http://s3.amazonaws.com/doit-oppa/73.bg.png) repeat-x 0 0;margin:0;padding:12px}
+h3 a{font-size:12px;line-height:25px;text-transform:none;color:#5D5D5F;font:14px FuturaBkBook,sans-serif}
+.menu-left h3{color:#000}
+.menu-left ul{margin-bottom:20px}
+#number{font-family: FuturaMedium, georgia;font-size: 18px;color: #302F35;background: url(images/bullet.jpg) 25px center no-repeat;padding-right: 16px;}
+.fitatop{margin:-45px}
+.fita .triangulo,.fitatop .triangulo{position:absolute;height:0;width:0;left:-6px;top:12px;z-index:1;margin-top:5px;border-color:transparent #333 transparent transparent;border-style:solid;border-width:12px}
+h3 { outline:none }
+h3 a { text-decoration:none; outline:none }
+h3 a:hover { color:#ff3d32;  }
+
+-->
+</style>
+
+
+
+</head>
+<body class="cms-quem-somos">
+
+	<!-- HEADER -->
+	<div id="nav_bar">
+		<div id="nav_bar_in">
+			<!-- LOGO OPPA -->
+			<a href="http://www.oppa.com.br"><img src="images/oppa.png" alt="Oppa" title="Oppa" class="logo_oppa_t f_lft"></a>
+			<!-- fim:LOGO OPPA -->
+			
+			<!-- LOGADO / DESLOGADO -->
+			<div class="bx001 f_lft">
+				Bom dia, Fernanda Silvestre Silva! <a href="javascript:void(0)">Acessa com outro usuário</a>
+			</div>
+			<!-- fim:LOGADO / DESLOGADO -->
+
+			<!-- BOTÃO CARRINHO DE COMPRA -->
+			<div class="bx005 f_rgt">
+				<a href="javascript:void(0)"><img src="images/btn_car.png"></a>
+			</div>
+			<!-- fim:BOTÃO CARRINHO DE COMPRA -->
+
+			<!-- ATENDIMENTO -->
+			<div class="bx004 f_rgt">
+				<img src="images/icon_atend.png" class="icon_0001">&nbsp; Atendimento 11 4063.6772
+			</div>
+			<!-- fim:ATENDIMENTO -->
+
+			<!-- MEUS PEDIDOS -->
+			<div class="bx003 f_rgt">
+				<a href="javascript:void(0)">Meus Pedidos</a>
+			</div>
+			<!-- fim:MEUS PEDIDOS -->
+
+			<!-- MEU CADASTRO -->
+			<div class="bx002 f_rgt">
+				<a href="javascript:void(0)">Meu Cadastro</a>
+			</div>
+			<!-- fim:MEU CADASTRO -->
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:HEADER -->
+
+<!-- MENU PRODUTOS -->
+	<div id="menu">
+		<div id="menu_cnt">
+
+			<!-- COLUNA PRODS DISPONIVEIS -->
+			<div class="cat_mn_01 f_lft">
+				<div class="tlt_ct_mn">PRODUTOS DISPONÍVEIS</div>
+				
+				<div class="cat_mn_01_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_01_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA PRODS DISPONIVEIS -->
+
+			<!-- COLUNA CATEGORIAS -->
+			<div class="cat_mn_02 f_lft">
+				<div class="tlt_ct_mn">CATEGORIAS</div>
+
+				<div class="cat_mn_02_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_02_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA CATEGORIAS -->
+
+			<!-- COLUNA LANÇAMENTO -->
+			<div class="cat_mn_03 f_lft">
+				<div class="tlt_ct_mn">LANÇAMENTOS</div>
+
+
+				<div class="cat_mn_03_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+			</div>
+			<!-- fim:COLUNA LANÇAMENTO -->
+
+
+			<div class="both"></div>
+
+		</div>
+	</div>
+
+	<!-- BOTAO MENU -->
+	<div id="down">
+		<div id="down_cnt">
+			<img src="images/img_prdcat.png" id="down_btn">
+		</div>
+	</div>
+	<!-- fim:BOTAO MENU -->
+<!-- fim:MENU PRODUTOS -->
+
+	<!-- CONTEÚDO -->
+	<div id="content font11px">
+		<div id="content_cnt">
+			
+			<!-- BREADCRUMB -->
+			<div class="breadcrumb">
+				<a href="javascript:void(0)">home</a>
+				<img src="images/set_bc.jpg">
+				poltronas
+			</div>
+			<!-- fim:BREADCRUMB -->
+
+			<br />
+
+
+
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+<script type="text/javascript">// &lt;![CDATA[
+  $(document).ready(function() {
+    $("#accordion").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true }    );
+	    $("#accordion2").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true });
+			    $("#accordion3").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true });
+				
+				    $("#accordion4").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true });
+	    $("#accordion5").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true });
+			    $("#accordion6").accordion({ active: -1  , autoHeight: false ,    icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' } ,  collapsible: true });
+
+
+  });
+// ]]&gt;</script>
+
+
+					<div class="atendimento-oppa">
+						<div class="fitatop">
+							<p class="parag">ATENDIMENTO AO CLIENTE</p>
+							<div class="triangulo"></div>
+						</div>
+						<div class="atendimento-tel">
+							<h3>CENTRAL DE ATENDIMENTO</h3>
+							<h1><sup>T 11</sup> 4063.6772</h1>
+							<p>Segunda a sexta das 9h30 às 18h30</p>
+						</div>
+						<div class="atendimento-duv">
+							<h3>Duvidas sobre produtos ou pedidos?</h3>
+							<h3>Sugestões, criticas ou elegios?</h3>
+							<p>Entre em contato com nossos profissionais pelo email <a href="mailto" title="Email para Suporte Oppa">suporte@oppa.com.br</a></p>
+						</div>
+					</div>
+					<h1 class="titulo">Ajuda</h1>
+					<div class="menu-left">
+					  <h3>TENHO DÚVIDA SOBRE:</h3>
+						<ul>
+							<li><a href="#SOBRE" title="">SOBRE A OPPA</a></li>
+							<li><a href="#VENDA" title="">VENDA DE PRODUTO</a></li>
+							<li><a href="#PAGAMENTO" title="">PAGAMENTO</a></li>
+							<li><a href="#TROCA" title="">TROCA E DEVOLUÇÃO</a></li>
+							<li><a href="#MINHA" title="">MINHA CONTA</a></li>
+							<li><a href="#ENTREGA" title="">ENTREGA</a></li>
+						</ul>
+						<h3>TAMBÉM PODE AJUDAR:</h3>
+						<ul>
+							<li><a href="#" title="">TROCAS E DEVOLUÇÕES</a></li>
+							<li><a href="#" title="">SEGURANÇA E PRIVACIDADE</a></li>
+							<li><a href="#" title="">GARANTIA DO PRODUTO</a></li>
+							<li><a href="#" title="">SERVIÇO DE ENTREGA</a></li>
+							<li><a href="#" title="">REGRAS DE VANTAGENS</a></li>
+						</ul>
+					</div>
+					<div id="center_accordion">
+                        <div class="fitaround">
+                            <div class="fita">
+                                <a name="SOBRE" id="SOBRE"><p class="parag">SOBRE A OPPA</a>
+                                <div class="triangulo"></div>
+                            </div>
+                            <div id="accordion" >
+								<h3><a href="#"><span id="number">01</span>  O que é a Oppa e por que devo me cadastrar?</a></h3>
+								<div id="accordion-content">A OPPA é um empresa especializada no   comércio eletrônico de móveis e objetos decorativos. Estamos trazendo   uma nova forma de comprar móveis: pela internet, sem lojas físicas e sem   intermediários. &nbsp; Fazemos questão de garantir variedade de móveis para   os ambientes da sua casa, com preços acessíveis e materiais de   qualidade, por&nbsp;isso, mensalmente apresentamos novos itens criados   exclusivamente para a Oppa, pelo Estúdio Oppa, por jovens e top   designers brasileiros. Para comprar na loja da Oppa,&nbsp;faça seu cadastro.&nbsp;</div>
+								<h3><a href="#"><span id="number">02</span>  A Oppa oferece garantia para seus produtos?</a></h3>
+								<div id="accordion-content">Todos os produtos Oppa têm 6 (seis) meses de garantia de qualidade. Para mais informações, consulte a seção <a href="http://www.oppa.com.br/termo-garantia-produto">Garantia do Produto</a>.</div>
+								<h3 ><a href="#"><span id="number">03</span>  Que tipo de produtos a Oppa vende?</a></h3>
+								<div id="accordion-content">Somos especializados em móveis e objetos decorativos para compor os ambientes de sua casa.</div>
+								<h3 ><a href="#"><span id="number">04</span>  Quem são os designers da Oppa?</a></h3>
+								<div id="accordion-content">Os projetos da Oppa são   originais e feitos pelos designers do Estúdio Oppa, por jovens designers   brasileiros e também por designers renomados.</div>
+								<h3 ><a href="#"><span id="number">05</span>  Quem são as pessoas que fazem parte da Oppa?</a></h3>
+								<div id="accordion-content">Para conhecer as pessoas que compõem a equipe da Oppa, confira no site a nossa página <a href="http://www.oppa.com.br/quem-somos">Quem Somos</a> e saiba mais sobre o que cada um faz aqui dentro.</div>
+                            </div>
+                        </div>
+						<div class="fitaround"> 
+							<div class="fita">
+								<a name="VENDA" id="VENDA"><p class="parag">VENDA DE PRODUTO</a>
+								<div class="triangulo"></div>
+							</div>
+							<div id="accordion2" >
+								<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><a href="#"><span id="number">01</span>  Qual é a duração da venda no site?</a></h3>
+								<div id="accordion-content">As vendas duram enquanto durarem os estoques. Nossos produtos são feitos em quantidades limitadas e podem esgotar rapidamente.</div>
+								<h3 ><a href="#"><span id="number">02</span>  Como posso saber sobre o lançamento de novas vendas?</a></h3>
+								<div id="accordion-content">Através do nosso e-mail newsletters, os   membros da Oppa recebem com antecedência avisos sobre futuras vendas.   Membros da Oppa que recebem a nossa <a href="http://www.oppa.com.br/newsletter/manage/">newsletter</a> têm acesso a grandes vantagens. As preferências da newsletter podem ser ajustadas <a href="http://www.oppa.com.br/newsletter/manage/">aqui</a>.</div>
+							</div>  
+						</div>
+						<div class="fitaround">
+							<div class="fita">
+								<a name="PAGAMENTO" id="PAGAMENTO"><p class="parag">PAGAMENTO</a>
+								<div class="triangulo"></div>
+							</div>
+							<div id="accordion3" >
+								<h3 ><a href="#"><span id="number">01</span>  Quais são as opções de pagamento no site da Oppa</a></h3>
+								<div id="accordion-content">Aceitamos boleto bancário, cartões de débito, débito online e cartões de crédito. Dividimos o pagamento em até 10 vezes, sem juros no cartão de crédito. A parcela mínina é de R$19,90.</div>
+								<h3 ><a href="#"><span id="number">02</span>  Quando minhas compras serão validadas?</a></h3>
+								<div id="accordion-content">Compras realizadas através de cartões de crédito e débito serão processadas imediatamente após a confirmação do cliente pelo site. Em alguns casos será necessário realizar uma análise de risco, processo que é feito por uma agência separadamente. Nestes casos, a cobrança pode demorar alguns dias para aparecer no seu extrato.</div>
+								<h3 ><a href="#"><span id="number">03</span>  Quero pagar com boleto bancário. Como devo fazer?</a></h3>
+								<div id="accordion-content">Se optar por pagar através de boleto bancário, você terá até 2 (dois) dias úteis para completar a transação em um banco de sua escolha, caso contrário, sua compra não será validada.</div>
+								<h3 ><a href="#"><span id="number">04</span>  Como posso saber qual é o status da minha compra?</a></h3>
+								<div id="accordion-content">	    
+									<div id="accordion-content">Para verificar o status de seus pedidos:</div>
+									<ul>
+										<li>I. Após efetuar seu login, clique em "Minha Conta".</li>
+										<li> II. Em seguida, clique na seção "Meus Pedidos".=</li>
+										<li> III. Selecione o número do pedido que você quer ver. </li>
+									</ul>	
+								</div>
+								<h3 ><a href="#"><span id="number">05</span>  Posso mudar ou cancelar uma compra já confirmada?</a></h3>
+								<div id="accordion-content">Para fazer alterações em seu pedido   ou cancelar a encomenda, entre em contato com nosso departamento de   Atendimento ao Cliente através do e-mail suporte@oppa.com.br. Os pedidos   só podem ser modificados dentro de 2 horas após a compra. Nosso horário   de atendimento é das 9h30 às 18h30.</div>
+                                <h3 ><a href="#"><span id="number">06</span>  Tenho dúvidas sobre meu pedido.</a></h3>
+								<div id="accordion-content">Estamos dispostos a responder   quaisquer perguntas que você possa ter. Sinta-se à vontade para nos   contatar através do e-mail suporte@oppa.com.br.</div>
+							</div>
+                        </div>
+						<div class="fitaround">
+                            <div class="fita">
+								<a name="TROCA" id="TROCA"><p class="parag">TROCA E DEVOLUÇÃO</a>
+								<div class="triangulo"></div>
+							</div>
+							<div id="accordion4" >
+								<h3 ><a href="#"><span id="number">01</span>  Como posso fazer uma devolução?</a></h3>
+								<div id="accordion-content">Caso queira devolver um produto, por favor verifique a nossa Política de <a href="http://www.oppa.com.br/troca-devolucoes">Trocas e Devoluções</a>.   Se tiver dúvidas ou quiser mais informações, entre em contato com   nossa Equipe de Atendimento ao Cliente através do e-ail   suporte@oppa.com.br. Estaremos dispostos a ajudá-lo.</div>
+								<h3 ><a href="#"><span id="number">02</span>  E se meu produto não for retornável?</a></h3>
+								<div id="accordion-content">Entre em contato com nossa Equipe de Atendimento ao Cliente. Vamos ouvir a sua situação e ver se somos capazes de ajudá-lo.</div>
+							</div>   
+                        </div>
+						<div class="fitaround">
+                            <div class="fita">
+								<a name="MINHA" id="MINHA"><p class="parag">MINHA CONTA</a>
+								<div class="triangulo"></div>
+							</div>
+							<div id="accordion5" >
+								<h3 ><a href="#"><span id="number">01</span>  Esqueci minha senha, e agora?</a></h3>
+								<div id="accordion-content">Sem problemas. Vá para a seção <a href="http://www.oppa.com.br/customer/account/">Minha Conta</a> e siga as instruções da tela para redefinir sua senha.</div>
+								<h3 ><a href="#"><span id="number">02</span>  Como faço para trocar meu nome de usuário, senha, e-mail, endereço ou dados de pagamento?</a></h3>
+								<div id="accordion-content">Você pode alterar todos esses detalhes, clicando na seção <a href="http://www.oppa.com.br/customer/account/">Minha Conta</a>.</div>
+								<h3 ><a href="#"><span id="number">03</span>  Como faço para cadastrar ou alterar as preferências e receber a newsletter da Oppa?</a></h3>
+								<div id="accordion-content">Se você gostaria de alterar ou modificar seus e-mails da Oppa, clique na seção <a href="http://www.oppa.com.br/customer/account/">Minha Conta</a> e habilite o recebimento da newsletter.</div>
+								<h3 ><a href="#"><span id="number">04</span>  Ao fazer o cadastro, meus dados estarão seguros?</a></h3>
+								<div id="accordion-content">Privacidade e discrição são prioridades   na Oppa. Nós nunca iremos vender ou fornecer seus dados para terceiros.   Para mais informações, consulte a nossa página de <a href="http://www.oppa.com.br/seguranca-privacidade">Segurança e Privacidade</a>.</div>
+							</div>
+                        </div> 
+						<div class="fitaround">  
+                            <div class="fita">
+								<a name="ENTREGA" id="ENTREGA"><p class="parag">ENTREGA</a>
+								<div class="triangulo"></div>
+							</div>
+							<div id="accordion6" >
+								<h3 ><a href="#"><span id="number">01</span>  Como posso saber se é possível receber um produto na cidade onde eu moro?</a></h3>
+								<div id="accordion-content">No momento, os produtos Oppa estão   disponíveis para a Grande São Paulo, Litoral Paulista, Campinas e   região. Em breve estarão disponível para outras regiões.</div>
+								<h3 ><a href="#"><span id="number">02</span>  Em quanto tempo vou receber minha compra?</a></h3>
+								<div id="accordion-content">Os prazos de entrega irão variar de   acordo com o produto solicitado e o tempo comprado dentro do período de   venda (os primeiros compradores geralmente se beneficiam de acesso a   datas anteriores de envio/entrega). Os prazos de entrega são de até 5   dias úteis após o recebimento das mercadorias no centro de distribuição.</div>
+								<h3 ><a href="#"><span id="number">03</span>  Como posso alterar a data de recebimento de um produto?</a></h3>
+								<div id="accordion-content">Logo após o pagamento confirmado,   uma notificação será enviada para o seu e-mail com aviso sobre a data de   entrega. Caso queira alterar a data de entrega, entre em contato com   nossa equipe de Atendimento ao Cliente através do e-mail   suporte@oppa.com.br.</div>
+								<h3 ><a href="#"><span id="number">04</span>  E se eu esquecer minha data de recebimento da compra?</a></h3>
+								<div id="accordion-content">No dia anterior à entrega prevista   para a sua compra, um novo e-mail de notificação será enviado para você   como lembrete. Se precisar alterar a data de entrega, entre em contato   com nossa equipe de Atendimento ao Cliente através do e-mail   suporte@oppa.com.br.</div>
+								<h3 ><a href="#"><span id="number">05</span>  Qual é o período de entregas?</a></h3>
+								<div id="accordion-content">As entregas serão feitas de segunda a sexta de 8h00 – 18h00, e sábados entre 8h00 – 16h00.</div>
+                                <h3 ><a href="#"><span id="number">06</span>  Qual é a taxa de entrega cobrada pela Oppa?</a></h3>
+								<div id="accordion-content">Como promoção de lançamento para os   clientes da Oppa, não será cobrada taxa de entrega. Frete grátis para   compras de quaisquer valores.</div>
+								<h3 ><a href="#"><span id="number">07</span>  Como me certificar que está tudo "ok" com a mercadoria entregue em minha casa?</a></h3>
+								<div id="accordion-content">Como um serviço de cortesia, os   funcionários contratados pela Oppa para realizar a entrega do produto   estão dispostos a inspecionar a mercadoria juntamente com você após o   recebimento; para confirmar se aquele é o produto escolhido, além de   verificar também a sua qualidade e integridade. Por favor, esteja   disponível para receber o produto, pois os funcionários de entrega não   têm autorização de abrir o produto e inspecioná-lo durante a sua   ausência. </div>
+							</div>
+                        </div>
+					</div>
+
+
+
+					<div class="both"></div>
+
+
+
+
+
+
+			<br />
+
+			<div class="menu_02">
+				<a href="javascript:void(0)">QUEM SOMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">COMO TRABALHAMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">BLOG</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">IMPRENSA</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">DESIGNERS</a>
+			</div>
+
+		</div>
+	</div>
+	<!-- fim:CONTEÚDO -->
+
+	<!-- FOOTER 01 -->
+	<div id="footer">
+		<div id="footer_cnt">
+			<div class="f_rgt"><a href="javascript:void(0)" class="terms">Termos e condições gerais do site</a></div>
+
+			<span class="tlt_f01">OPPA, sua loja de móveis on-line!</span>
+			<br /><br />
+			<p class="descr_ftr01" style="">A <strong>Oppa</strong> é uma empresa
+				especializada no comércio eletrônico de móveis e objetos decorativos
+				para mobiliar sua casa. Com a <strong>Oppa</strong> é fácil, rápido e
+				prático fazer suas compras on-line.&nbsp; Fazemos questão de garantir
+				grande variedade de móveis para os ambientes da sua casa, vendidos a
+				preços acessíveis e feitos com materiais de qualidade. Em nossa loja
+				virtual, entre outros produtos, você poderá encontrar: sofás, cadeiras,
+				poltronas, mesas, armários, estantes, escrivaninhas, camas de casal ou
+				solteiro, móveis para a sala, móveis para escritório e móveis para
+				dormitórios.&nbsp; Os projetos são únicos e feitos por jovens
+				brasileiros e também por designers renomados. Acreditamos no smart
+				design e em peças inovadoras. Obrigada por escolher a <strong>Oppa</strong>
+				para decorar a sua casa!
+			</p>
+			<br />
+			<p class="fnt12px">2011 &reg; Oppa Design Ltda.</p>
+			<br /><br />
+
+			<div class="col_f_001 f_lft">
+					
+				<span class="tlt_f_2">PAGAMENTO</span>
+				<br /><br />
+				<div>
+					<img src="images/carts.jpg"> &nbsp; &nbsp; <img src="images/carts_2.jpg">
+				</div>
+			</div>
+
+			<div class="col_f_002 f_lft">
+					
+				<span class="tlt_f_2">ATENDIMENTO AO CLIENTE</span>
+				<br /><br />
+				<div>
+					<img src="images/icon_atend2.jpg"> SAC 3081.1924
+					<br />
+					<img src="images/icon_mail2.jpg"> suporte@oppa.com.br
+				</div>
+			</div>
+
+			<div class="col_f_003 f_lft">
+					
+				<span class="tlt_f_2">100% DE SATISFAÇÃO</span>
+				<br /><br />
+				
+				<div class="col1finok f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">TROCAS E DEVOLUÇÕES</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SEGURANÇA E PRIVACIDADE</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">GARANTIA DE PRODUÇÃO</a>
+					<br />	
+				</div>
+				
+				<div class="col1finok2 f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SERVIÇO DE ENTREGA</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">REGRAS DE VANTAGENS</a>
+				</div>
+				
+				<div class="both"></div>
+			</div>
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:FOOTER 01 -->
+
+	<!-- FOOTER 02 -->
+	<div id="footer_2">
+		<div id="footer_cnt_2">
+			<div class="dv_rds_scs f_rgt">
+				<a href="javascript:void(0)"><img src="images/icon_face.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_twitter.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_orkut.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_gplus.png"></a>
+			</div>
+
+			<form>
+				Informe seu e-mail e faça seu cadastro: &nbsp; &nbsp; 
+				<input type="text" name="email" class="mail_ftr" />
+				<input type="image" name="send" src="images/btn_snd.png" class="btnsnd" />
+			</form>
+		</div>
+	</div>
+	<!-- fim:FOOTER 02 -->
+
+</body>
+</html>

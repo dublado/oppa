@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Oppa! Design para todos </title>
+	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>
+
+	/*fim:THUMBS PRODUTOS*/
+	var cores =  ["rgb(73, 73, 81)","rgb(81, 181, 110)","rgb(90, 191, 203)","rgb(255, 173, 0)","rgb(131, 107, 170)","rgb(242, 242, 244)"];
+	function change_bgcolor(vseletor,vcor)
+	{
+		oseletor = $(vseletor).parent().parent().attr('id');
+
+		cor = $("#"+oseletor).css('background-color');
+		corindice = (cores.indexOf(cor));
+		switch(vcor)
+		{
+			case "left":
+
+			if( (corindice <= 0 ) ){
+				corindice = cores.length-1;
+			}
+				else{corindice--;
+			}
+
+			break;
+			case "right":
+
+			if( (corindice >= (cores.length-1) || (corindice==-1) ) ){
+				corindice = 0;
+			}
+			else{corindice++;}
+			break;
+		}
+		vcor = cores[corindice];
+		console.log(cor);
+		console.log(corindice);
+		console.log(vcor);
+		console.log(oseletor);
+		$( '#'+ oseletor ).css('background-color',vcor);
+	}
+	/*fim:THUMBS PRODUTOS*/
+
+
+
+	$(document).ready(function() 
+	{
+		/*THUMBS PRODUTOS*/
+		$('.thumb_prod').each(function(){
+			$(this).hover(function(){
+				$('.botao', this).show();
+				$('.info_prod', this).slideUp('fast');
+				$('.bx_vr_details', this).slideDown('fast');
+			}, function(){
+				$('.botao', this).hide();
+				$('.info_prod', this).slideDown();
+				$('.bx_vr_details', this).slideUp();
+			});
+		});
+
+
+		/*MENU CATEGOTIA*/
+		$('#down_btn').click(function()
+		{
+			vthis = $('#menu');
+			vthis_cnt = $('#menu #menu_cnt');
+			if(!vthis.attr('data-clicado'))
+			{
+				vthis.animate(
+				{
+					height : 244
+				}, 'fast');
+
+				vthis.attr('data-clicado', 'true');
+
+				vthis_cnt.fadeIn();
+			}
+			else
+			{
+				vthis_cnt.css('display','none');
+
+				vthis.removeAttr('data-clicado');
+
+				vthis.animate(
+				{
+					height : 0
+				}, 'fast');
+
+			}
+		});
+
+	});
+</script>
+
+
+
+<style type="text/css">
+<!--
+/* Content Columns */
+.col2-set .col-1{float:left;width:49%}
+.col2-set .col-2{float:right;width:49%}
+.col2-set .narrow{width:33%}
+.col2-set .wide{width:65%}
+
+.col3-set .col-1{float:left;width:32%}
+.col3-set .col-2{float:left;width:32%;margin-left:2%}
+.col3-set .col-3{float:right;width:32%}
+
+.col4-set .col-1{float:left;width:23.5%}
+.col4-set .col-2{float:left;width:23.5%;margin:0 2%}
+.col4-set .col-3{float:left;width:23.5%}
+.col4-set .col-4{float:right;width:23.5%}
+
+.font11px { font-size:11px; }
+.cms-quem-somos .std{position:relative;}
+.cms-quem-somos .design-para-todos{background:url('images/quem_somos.png');height:278px;margin-bottom:0;text-indent:-9999em;overflow:hidden;width:840px}
+.smart-design{ color:#CECECE; line-height:1.6em; width:160px; float:right; margin-top:-233px; margin-right:80px; font-size:11px; }
+.smart-design h3{text-transform:uppercase}
+.cms-quem-somos .col3-set{color:#666;line-height:1.5em;margin-top:10px;padding-bottom:70px;font-size:11px;}
+
+.cms-quem-somos .equipe{clear:both}
+.cms-quem-somos .equipe h3{color:#1F1F29;font:48px "BauerBodoniBlackItalicBTBlkIt",serif;margin-bottom:10px;text-transform:lowercase}
+.cms-quem-somos .equipe p{font:12px "FuturaBkBook",sans-serif;margin-left:55px;width:330px;color:#666}
+.cms-quem-somos .equipe p strong{font-size:16px;font-weight:normal;color:#1f1f29}
+.cms-quem-somos .equipe li{background:#131215;color:white;display:block;position:absolute}
+.cms-quem-somos .equipe li p{color:#818183;font:italic 13px Georgia;padding:0;margin:0;width:auto}
+.cms-quem-somos .equipe li img{display:block}
+.cms-quem-somos .equipe li img:hover + .description{display:block}
+
+.cms-quem-somos .equipe li img{}
+.cms-quem-somos .equipe li .description{background:url('images/fold.png');display:none;padding:40px 30px 0;position:absolute}
+
+/* consistencia */
+.cms-quem-somos .equipe li.toTop img,.cms-quem-somos .equipe li.toBottom img{height:140px;width:280px}
+.cms-quem-somos .equipe li.toRight img,.cms-quem-somos .equipe li.toLeft img{height:280px;width:140px}
+.cms-quem-somos .equipe li.toTop .description,.cms-quem-somos .equipe li.toBottom .description{left:0;padding-bottom:55px;width:220px}
+.cms-quem-somos .equipe li.toRight .description,.cms-quem-somos .equipe li.toLeft .description{height:240px;top:0;width:224px}
+
+.cms-quem-somos .equipe li.toTop .description{background-position:left top;bottom:100%}
+.cms-quem-somos .equipe li.toBottom .description{background-position:left bottom;top:100%}
+.cms-quem-somos .equipe li.toRight .description{background-position:right top;left:100%}
+.cms-quem-somos .equipe li.toLeft .description{background-position:left top;right:100%}
+
+.cms-quem-somos .equipe li h4{border-bottom:1px dotted #7ACFD9;color:#DEDEDE;font:italic 37px Georgia,times,serif;padding-bottom:10px}
+.cms-quem-somos .equipe li p{color:#999;margin:0;width:auto}
+
+.cms-quem-somos .equipe ul{background:url('images/equipe.png') left top;border-bottom:13px solid #1f1f29;height:700px;margin-top:40px;padding:0;position:relative;width:100%}
+.cms-quem-somos .equipe ul:hover{background-position:left bottom}
+.cms-quem-somos .equipe ul:hover li,.cms-quem-somos .equipe ul:hover li img{background:#fff;opacity:.2;filter:alpha(opacity=40);filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=40)";}
+.cms-quem-somos .equipe ul:hover li:hover,.cms-quem-somos .equipe ul:hover li:hover img{opacity:1;filter:alpha(opacity=100);filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=100)";;z-index:99}
+
+
+#user1{left:420px;top:-140px}
+#user2{left:700px;top:-280px}
+#user3{left:840px;top:-140px}
+#user4{left:560px;top:0}
+#user5{left:140px;top:0}
+#user6{left:0;top:0}
+#user7{left:280px;top:140px}
+#user8{left:560px;top:140px}
+#user9{left:140px;top:280px}
+#user10{left:700px;top:280px}
+#user11{left:0;top:420px}
+#user12{left:420px;top:420px}
+#user13{left:560px;top:420px}
+#user14{left:700px;top:560px}
+
+-->
+</style>
+
+
+
+</head>
+<body class="cms-quem-somos">
+
+	<!-- HEADER -->
+	<div id="nav_bar">
+		<div id="nav_bar_in">
+			<!-- LOGO OPPA -->
+			<a href="http://www.oppa.com.br"><img src="images/oppa.png" alt="Oppa" title="Oppa" class="logo_oppa_t f_lft"></a>
+			<!-- fim:LOGO OPPA -->
+			
+			<!-- LOGADO / DESLOGADO -->
+			<div class="bx001 f_lft">
+				Bom dia, Fernanda Silvestre Silva! <a href="javascript:void(0)">Acessa com outro usuário</a>
+			</div>
+			<!-- fim:LOGADO / DESLOGADO -->
+
+			<!-- BOTÃO CARRINHO DE COMPRA -->
+			<div class="bx005 f_rgt">
+				<a href="javascript:void(0)"><img src="images/btn_car.png"></a>
+			</div>
+			<!-- fim:BOTÃO CARRINHO DE COMPRA -->
+
+			<!-- ATENDIMENTO -->
+			<div class="bx004 f_rgt">
+				<img src="images/icon_atend.png" class="icon_0001">&nbsp; Atendimento 11 4063.6772
+			</div>
+			<!-- fim:ATENDIMENTO -->
+
+			<!-- MEUS PEDIDOS -->
+			<div class="bx003 f_rgt">
+				<a href="javascript:void(0)">Meus Pedidos</a>
+			</div>
+			<!-- fim:MEUS PEDIDOS -->
+
+			<!-- MEU CADASTRO -->
+			<div class="bx002 f_rgt">
+				<a href="javascript:void(0)">Meu Cadastro</a>
+			</div>
+			<!-- fim:MEU CADASTRO -->
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:HEADER -->
+
+<!-- MENU PRODUTOS -->
+	<div id="menu">
+		<div id="menu_cnt">
+
+			<!-- COLUNA PRODS DISPONIVEIS -->
+			<div class="cat_mn_01 f_lft">
+				<div class="tlt_ct_mn">PRODUTOS DISPONÍVEIS</div>
+				
+				<div class="cat_mn_01_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_01_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA PRODS DISPONIVEIS -->
+
+			<!-- COLUNA CATEGORIAS -->
+			<div class="cat_mn_02 f_lft">
+				<div class="tlt_ct_mn">CATEGORIAS</div>
+
+				<div class="cat_mn_02_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_02_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA CATEGORIAS -->
+
+			<!-- COLUNA LANÇAMENTO -->
+			<div class="cat_mn_03 f_lft">
+				<div class="tlt_ct_mn">LANÇAMENTOS</div>
+
+
+				<div class="cat_mn_03_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+			</div>
+			<!-- fim:COLUNA LANÇAMENTO -->
+
+
+			<div class="both"></div>
+
+		</div>
+	</div>
+
+	<!-- BOTAO MENU -->
+	<div id="down">
+		<div id="down_cnt">
+			<img src="images/img_prdcat.png" id="down_btn">
+		</div>
+	</div>
+	<!-- fim:BOTAO MENU -->
+<!-- fim:MENU PRODUTOS -->
+
+	<!-- CONTEÚDO -->
+	<div id="content font11px">
+		<div id="content_cnt">
+			
+			<!-- BREADCRUMB -->
+			<div class="breadcrumb">
+				<a href="javascript:void(0)">home</a>
+				<img src="images/set_bc.jpg">
+				poltronas
+			</div>
+			<!-- fim:BREADCRUMB -->
+
+			<br />
+
+
+
+
+
+
+
+
+
+		<h1 class="design-para-todos">Design para todos</h1>
+
+			<div class="smart-design">
+
+				<h3>SMART DESIGN</h3>
+				<p>Somos uma equipe apaixonada pelo smart design. Projetos conscientes, eficientes, sustent&aacute;veis e, acima de tudo, acess&iacute;veis a TODOS.</p>
+			</div>
+			<div class="col3-set">
+				<div class="col-1">N&oacute;s atuamos com ousadia e <strong>inspira&ccedil;&atilde;o em novidades dispon&iacute;veis</strong>, abrindo portas para jovens talentos. Acima da vis&atilde;o de neg&oacute;cios, pretendemos favorecer uma <strong>nova atitude</strong>, mais consciente e alinhada com os dias em que vivemos.</div>
+
+				<div class="col-2">&Eacute; nosso objetivo encurtar o caminho entre quem cria e quem usufrui do projeto, oferecendo <strong>possibilidades reais de execu&ccedil;&atilde;o</strong> e otimizando a produ&ccedil;&atilde;o porque acreditamos que consumidores exigentes merecem desenhos originais de m&oacute;veis feitos com materiais de qualidade, vendidos a um pre&ccedil;o justo.</div>
+				<div class="col-3">Para sermos reconhecidos pelo cuidado e pela seriedade com que tratamos <strong>nossos clientes e nosso pa&iacute;s</strong>. Vemos na dedica&ccedil;&atilde;o dos novos designers a capacidade de viabilizar transforma&ccedil;&otilde;es relevantes no nosso modo de viver e nos relacionarmos com o design, para isso, queremos que voc&ecirc; fa&ccedil;a parte desse projeto.<br /><br /></div>
+
+				<div class="both"></div>
+
+			</div>
+			<div class="equipe">
+				<h3>Equipe Oppa</h3>
+
+				<p><strong>Aqui na Oppa, valorizamos percep&ccedil;&otilde;es, interesses e necessidades individuais e coletivas.</strong></p>
+
+				<p>Os m&oacute;veis de design n&atilde;o s&atilde;o feitos apenas por designers criativos, e sim por uma equipe motivada pela ideia de que o design pode e deve ser acess&iacute;vel a todos. Para tal, contamos com profissionais qualificados e com grande capacidade de realizar trabalhos diferenciados. Sendo assim, um bom projeto acontece a partir da intera&ccedil;&atilde;o entre as pessoas envolvidas no processo.</p>
+				
+				<ul>
+					<li id="user1" class="toRight"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/max.jpg" alt="Max Reichel" />
+						<div class="description">
+
+							<h4>Max Reichel</h4>
+							<p>&Eacute; o fundador da Oppa! Teve a ideia do neg&oacute;cio, criou a empresa, montou a equipe. Trabalha para revolucionar o mercado de design de m&oacute;veis no Brasil.</p>
+						</div>
+					</li>
+					<li id="user2" class="toLeft"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/leonardo_gaboardi.jpg" alt="Leonardo Gaboardi" />
+						<div class="description">
+							<h4>Leonardo Gaboardi</h4>
+							<p>Cuida do planejamento estrat&eacute;gico e financeiro da Oppa, assegurando que a empresa consiga atingir suas metas de forma sustent&aacute;vel.</p>
+
+						</div>
+					</li>
+					<li id="user3" class="toLeft"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/jorge_jabor.jpg" alt="Jorge Jabor" />
+						<div class="description">
+							<h4>Jorge Jabor</h4>
+							<p>Trabalha estrat&eacute;gias que permitem inovar e criar produtos que melhorem a qualidade de vida dos clientes. &Eacute; ele quem gerencia os projetos, coordena e d&aacute; suporte &agrave; equipe de designers da Oppa.</p>
+						</div>
+					</li>
+
+					<li id="user4" class="toBottom"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/renato_perigo.jpg" alt="Renato P&eacute;rigo" />
+						<div class="description">
+							<h4>Renato P&eacute;rigo</h4>
+							<p>&Eacute; o bra&ccedil;o direito da equipe de designers, ajuda na cria&ccedil;&atilde;o e no desenvolvimento de novas pe&ccedil;as de design para as cole&ccedil;&otilde;es de m&oacute;veis da Oppa.</p>
+						</div>
+					</li>
+					<li id="user5" class="toBottom"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/fabio_lolio.jpg" alt="Fabio Lolio" />
+						<div class="description">
+
+							<h4>Fabio Lolio</h4>
+							<p>Mant&eacute;m a empresa em movimento, faz de tudo para reduzir os prazos de entrega dos produtos em sua casa.</p>
+						</div>
+					</li>
+					<li id="user6" class="toRight"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/joao_kaarah.jpg" alt="Jo&atilde;o Kaarah" />
+						<div class="description">
+							<h4>Jo&atilde;o Kaarah</h4>
+							<p>&Eacute; o designer da equipe que aproveita seu conhecimento de outras vertentes da arte para criar m&oacute;veis de design das cole&ccedil;&otilde;es da Oppa.</p>
+
+						</div>
+					</li>
+					<li id="user7" class="toBottom"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/raphael_patapovas.jpg" alt="Raphael Patapovas" />
+						<div class="description">
+							<h4>Raphael Patapovas</h4>
+							<p>Transformou a id&eacute;ia de vender m&oacute;veis on-line em realidade, criou e mant&eacute;m atualizado o site Oppa.com.br. Al&eacute;m disso, &eacute; o Rapha que cria toda a nossa identidade visual.</p>
+						</div>
+					</li>
+					<li id="user8" class="toRight"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/fernanda_vilhena.jpg" alt="Fernanda Vilhena" />
+
+						<div class="description">
+							<h4>Fernanda Vilhena</h4>
+							<p>Sou eu quem escreve os conte&uacute;dos da Oppa. Atrav&eacute;s dos textos no site, posts no blog e conversas nas m&iacute;dias sociais, pretendo inserir voc&ecirc;s em nosso universo, transmitindo nosso modo de pensar e fazer design aqui na Oppa.</p>
+						</div>
+					</li>
+					<li id="user9" class="toBottom"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/ana_carolina_carparelli.jpg" alt="Ana Carolina Carparelli" />
+						<div class="description">
+							<h4>Ana Carolina Carparelli</h4>
+							<p>Al&eacute;m de selecionar jovens designers com grande potencial, aprova as cole&ccedil;&otilde;es da Oppa, sempre atenta ao estilo e &agrave; qualidade.</p>
+
+						</div>
+					</li>
+					<li id="user10" class="toTop"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/pedro_bacchi.jpg" alt="Pedro Bacchi" />
+						<div class="description">
+							<h4>Pedro Bacchi</h4>
+							<p>Come&ccedil;a a tornar os produtos da Oppa reais: Tira do papel e renderiza as pe&ccedil;as. Para que os projetos possam ser enviados &agrave; produ&ccedil;&atilde;o, faz o detalhamento e desenhos t&eacute;cnicos.</p>
+						</div>
+					</li>
+					<li id="user11" class="toTop"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/denis_batista.jpg" alt="Denis Batista" />
+
+						<div class="description">
+							<h4>Denis Batista</h4>
+							<p>Planeja, coordena, supervisiona e negocia os produtos para que as cole&ccedil;&otilde;es da Oppa sejam o que voc&ecirc; procura.</p>
+						</div>
+					</li>
+					<li id="user12" class="toRight"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/alykhan_karim.jpg" alt="Alykhan Karim" />
+						<div class="description">
+							<h4>Alykhan Karim</h4>
+							<p>Mais do que responder&nbsp;<span>&agrave;</span>&nbsp;d&uacute;vidas e reclama&ccedil;&otilde;es, representa as necessidades dos clientes perante&nbsp;<span>a</span>&nbsp;Oppa.</p>
+
+						</div>
+					</li>
+					<li id="user13" class="toTop"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/vicente_ribeiro.jpg" alt="Vicente Ribeiro" />
+						<div class="description">
+							<h4>Vicente Ribeiro</h4>
+							<p>Comanda a &aacute;rea de tecnologia da Oppa. Planeja, coordena, executa a expans&atilde;o e a manuten&ccedil;&atilde;o das atividades tecnol&oacute;gicas da empresa.</p>
+						</div>
+					</li>
+					<li id="user14" class="toTop"><img src="http://www.oppa.com.br/skin/frontend/enterprise/oppa/images/quem_somos/jose_machado.jpg" alt="Jos&eacute; Machado" />
+						<div class="description">
+							<h4>Jos&eacute; Machado</h4>
+
+							<p>Aproveita na cria&ccedil;&atilde;o de m&oacute;veis seu grande repert&oacute;rio de materiais e processos de fabrica&ccedil;&atilde;o, o que facilita a comunica&ccedil;&atilde;o com os fornecedores.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<br />
+
+			<div class="menu_02">
+				<a href="javascript:void(0)">QUEM SOMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">COMO TRABALHAMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">BLOG</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">IMPRENSA</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">DESIGNERS</a>
+			</div>
+
+		</div>
+	</div>
+	<!-- fim:CONTEÚDO -->
+
+	<!-- FOOTER 01 -->
+	<div id="footer">
+		<div id="footer_cnt">
+			<div class="f_rgt"><a href="javascript:void(0)" class="terms">Termos e condições gerais do site</a></div>
+
+			<span class="tlt_f01">OPPA, sua loja de móveis on-line!</span>
+			<br /><br />
+			<p class="descr_ftr01" style="">A <strong>Oppa</strong> é uma empresa
+				especializada no comércio eletrônico de móveis e objetos decorativos
+				para mobiliar sua casa. Com a <strong>Oppa</strong> é fácil, rápido e
+				prático fazer suas compras on-line.&nbsp; Fazemos questão de garantir
+				grande variedade de móveis para os ambientes da sua casa, vendidos a
+				preços acessíveis e feitos com materiais de qualidade. Em nossa loja
+				virtual, entre outros produtos, você poderá encontrar: sofás, cadeiras,
+				poltronas, mesas, armários, estantes, escrivaninhas, camas de casal ou
+				solteiro, móveis para a sala, móveis para escritório e móveis para
+				dormitórios.&nbsp; Os projetos são únicos e feitos por jovens
+				brasileiros e também por designers renomados. Acreditamos no smart
+				design e em peças inovadoras. Obrigada por escolher a <strong>Oppa</strong>
+				para decorar a sua casa!
+			</p>
+			<br />
+			<p class="fnt12px">2011 &reg; Oppa Design Ltda.</p>
+			<br /><br />
+
+			<div class="col_f_001 f_lft">
+					
+				<span class="tlt_f_2">PAGAMENTO</span>
+				<br /><br />
+				<div>
+					<img src="images/carts.jpg"> &nbsp; &nbsp; <img src="images/carts_2.jpg">
+				</div>
+			</div>
+
+			<div class="col_f_002 f_lft">
+					
+				<span class="tlt_f_2">ATENDIMENTO AO CLIENTE</span>
+				<br /><br />
+				<div>
+					<img src="images/icon_atend2.jpg"> SAC 3081.1924
+					<br />
+					<img src="images/icon_mail2.jpg"> suporte@oppa.com.br
+				</div>
+			</div>
+
+			<div class="col_f_003 f_lft">
+					
+				<span class="tlt_f_2">100% DE SATISFAÇÃO</span>
+				<br /><br />
+				
+				<div class="col1finok f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">TROCAS E DEVOLUÇÕES</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SEGURANÇA E PRIVACIDADE</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">GARANTIA DE PRODUÇÃO</a>
+					<br />	
+				</div>
+				
+				<div class="col1finok2 f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SERVIÇO DE ENTREGA</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">REGRAS DE VANTAGENS</a>
+				</div>
+				
+				<div class="both"></div>
+			</div>
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:FOOTER 01 -->
+
+	<!-- FOOTER 02 -->
+	<div id="footer_2">
+		<div id="footer_cnt_2">
+			<div class="dv_rds_scs f_rgt">
+				<a href="javascript:void(0)"><img src="images/icon_face.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_twitter.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_orkut.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_gplus.png"></a>
+			</div>
+
+			<form>
+				Informe seu e-mail e faça seu cadastro: &nbsp; &nbsp; 
+				<input type="text" name="email" class="mail_ftr" />
+				<input type="image" name="send" src="images/btn_snd.png" class="btnsnd" />
+			</form>
+		</div>
+	</div>
+	<!-- fim:FOOTER 02 -->
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+.footer-before-container{margin:0 0 0;text-align:center}
+.form-subscribe{background:#231f20 url('images/sprite.png') no-repeat 0 -332px;padding:13px 20px 7px;height:30px;position:relative}
+.form-subscribe label{float:left;height:30px;display:block;color:#C7C7C7;font-size:13px;padding-right:18px;text-shadow:-1px -1px 0 black;line-height:25px;font-weight:bold}
+.form-subscribe input.input-text{display:block;border:1px solid transparent;background:#ede8e9;height:23px;padding:0 41px 0 12px;float:left;line-height:23px;width:211px}
+.form-subscribe input.validation-failed{border-color:#ff4b41!important}
+.form-subscribe button{background:#DADADA url('images/sprite.png') -212px -39px;border:0!important;width:29px;height:25px;margin:0 0 0 -29px;float:left}
+.form-subscribe:hover button.button,.form-subscribe:focus button.button,.form-subscribe button.button:hover,.form-subscribe button.button:focus{background-position:-212px -2px}
+.form-subscribe button.button span{display:none}
+.form-subscribe .validation-advice{color:#FF4B41!important;left:580px;top:7px;position:absolute;width:200px}
+.form-subscribe .v-fix{text-align:left}
+.form-subscribe a{color:#777}
+/*.footer-container{background:white url('images/background.png') repeat-x center top;margin:40px 0 0 0;text-align:left;*/
+
+.page .footer-container{margin-left: 20px; color: #D6D6D9;}
+.footer-container{background-color:#32323A;margin:40px 0 0 0;text-align:left;padding:2px 0 0 0}
+
+
+.footer{padding-top:390px;position:relative}
+.footer_aux_bg{background:#fff url('images/background.png') fixed center;height:6px;width:100%;position:absolute;left:0}
+.footer .footer_info{margin-top:-390px;margin-bottom:128px;margin-left:16px;overflow:hidden}
+.footer .footer_info ul a{text-decoration:none}
+.footer .footer_info ul a:hover{color:#f0453b}
+.footer .footer_info .footer_about{overflow:hidden; float:left; color: #6A6A72; height:175px;}
+
+.footer .footer_info .footer .footer_info .footer_costumer{float:left;margin-left:80px;width:170px}
+.footer .footer_info .footer_costumer{margin-left:60px;width:220px}
+.footer .footer_info .footer_costumer ul{margin:0 0 1.5em 0;width:100%}
+.footer .footer_info .footer_costumer ul li{list-style:disc outside url('images/bullet.png');display:list-item;margin-left:15px;}
+
+.footer_payment span {
+  background-image:url('images/bg_cards.jpg');
+  background-repeat:no-repeat;
+  height:47px;
+  padding:4px 0px 0px 2px;
+  position:absolute;
+  width:290px;
+}
+
+.footer_payment img{
+border: 0px;
+}
+
+.termos a{
+	float:right;
+  font-size:xx-small;
+  margin-right:17px;
+  margin-top:-28px;
+  color: #6A6A72;
+}
+
+.credito{
+	  background-color: #fff;
+	  width:auto;
+	  height:auto;
+}
+
+.debito{
+	  background-color: #fff;
+}
+.footer_payment h3{
+ font-size:10px;
+  text-transform:uppercase;
+  color: #48B36F;
+	
+}
+
+.footer .footer_info .footer_costumer ul li a{color:#666;text-transform:uppercase;font-size:10px;}
+.footer .footer_info .footer_costumer ul li a:hover{color:#F0453B}
+
+.footer .footer_info .footer_costumer ul li.televendas,
+.footer .footer_info .footer_costumer ul li.mail,
+.footer .footer_info .footer_costumer ul li.ajuda{
+line-height:24px;
+margin:0;
+list-style:none;
+clear:both;
+}
+.footer .footer_info .footer_costumer ul li.televendas em{font-style:normal;color:#1F1F29}
+.footer .footer_info .footer_costumer ul li.televendas span.bigger{font-size:17px}
+
+
+.footer .footer_info .footer_costumer ul li.televendas a,
+.footer .footer_info .footer_costumer ul li.mail a,
+.footer .footer_info .footer_costumer ul li.ajuda a{
+    text-transform:inherit;
+}
+
+.footer .footer_info .footer_costumer ul li.televendas a .ico,
+.footer .footer_info .footer_costumer ul li.mail a .ico,
+.footer .footer_info .footer_costumer ul li.ajuda a .ico{
+background:url('images/sprite.png');
+display:block;
+float:left;
+width:30px;
+height:30px;
+}
+
+
+.footer .footer_info .footer_costumer ul li.televendas a .ico{background-position:-448px -180px;}
+.footer .footer_info .footer_costumer ul li.mail a .ico{background-position:-448px -146px;}
+.footer .footer_info .footer_costumer ul li.ajuda a .ico{background-position:-448px -112px;}
+
+
+
+.footer .footer_info .verisign{display:block;margin:17px 0 0 303px;background:url('images/sprite.png') -251px -34px;width:82px;height:42px;float:left;clear:left}
+.footer .footer_info .verisign span{margin-left:95px;display:block;width:70px;font-size:9px;margin-top:13px;}
+.footer .footer_info .footer_payment .cards{background:url('images/cards.png');width:162px;height:20px;text-indent:-9999em;overflow:hidden;margin-bottom:20px}
+.footer .footer_info .footer_payment h4{color:#787878;
+text-transform:uppercase;
+font-size:10px;
+}
+
+.footer .footer_info .footer_payment ul{margin:0 0 1.5em 0;width:200px}
+.footer .footer_info .footer_payment ul li{
+    display:block;
+    vertical-align:top;
+    margin:0 0 5px;
+    padding:0;
+    width:auto;
+    float:left;
+    margin-right:4px;
+}
+.footer ul,.footer ul.links{display:block;float:left;width:150px;margin:0 0 0 19px;padding:0}
+.footer ul.links{display:none}
+.footer ul.links li,.footer ul li{display:block;vertical-align:top;margin:0 0 5px;padding:0}
+.footer ul.nav_aux_footer{display:block;position:absolute;left:0;margin:0;bottom:70px;background:url('images/nav_aux_footer.png') no-repeat center bottom;padding:0;width:980px}
+.footer ul.nav_aux_footer a{width:163px;display:block;padding:0 0 15px;font:12px "FuturaMedium",sans-serif;text-transform:uppercase;text-align:center;text-decoration:none;float:left}
+.footer ul.nav_aux_footer a:hover{color:#f0453b}
+.footer ul.nav_aux_footer li{float:left;margin:0;padding:0}
+.footer .social_rodape{bottom:7px;position:absolute;right:10px}
+.footer .social_rodape #___plusone_0{float:left!important;position:relative!important;top:3px}
+.footer .social_rodape a.facebook{background-position:-567px 0}
+.footer .social_rodape a.twitter{background-position:-607px 0}
+address.copyright{display:none}
+.footer .switcher-store{float:right;width:184px;background:url(images/bkg_store-switch.gif) no-repeat 0 3px;padding-top:21px}
+.footer .switcher-store label{display:none}
+.footer .switcher-store select{padding:0;margin-bottom:1px}
+.footer .switcher-store ul{float:none;width:auto;padding-left:0;margin-left:0}
+.footer .switcher-store ul .current{display:none}
+body{
+color:#444444;
+  font:normal normal normal 11px/1.35 FuturaBkBook, sans-serif;
+}
+
+.product-options dt:after, #bundleProduct:after, .events-slider:after, .product-image-popup .nav:after, .gift-item:after, .block-content:after, .block-list li.item:after, .block-poll li:after, .currently li:after, .order-info:after, .top-cart .actions:after, .header .quick-access:after, .product-view .box-related li.item:after, .bundle-summary .product:after, .collateral-tabs:after, .block-cart .block-content .item:after, .clearer:after, .header-container:after, .header-container .top-container:after, .header:after, .header-panel:after, #nav:after, .main:after, .footer-before-container:after, .footer-container:after, .footer:after, .col-main:after, .col2-set:after, .col3-set:after, .col4-set:after, .search-autocomplete li:after, .block li.item:after, .block .actions:after, .mini-products-list li:after, .cms-index-index .block-featured li.item:after, .title-buttons:after, .pager:after, .sorter:after, .ratings:after, .add-to-box:after, .add-to-cart:after, .products-grid:after, .products-list li.item:after, .product-view:after, .product-view .product-img-box .more-views ul:after, .product-view .box-tags .form-add-tags:after, .product-options .options-list li:after, .options-container-small .product-options:after, .product-options-bottom:after, .product-review:after, .box-collateral:after, .box-collateral .box-content:after, .collateral-tabs .tab-content:after, .account-login:after, .cart .cart-collaterals:after, .cart:after, .opc .step-title:after, .checkout-progress:after, .form-list li:after, .form-list li.fields .field:after, .clearfix:after, .buttons-set:after, .buttons-set2:after, .page-print .print-head:after, .new-product-spotlight .more-new .item:after, .addresses-list .col-2 li:after, .product-view .product-shop:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+
+.footer_about h3 a{
+color:#CACACA;
+  font:normal normal bold 16px/1.35 FuturaBkBook, sans-serif;
+  text-decoration:none;
+}
+
+.conainer2{
+	margin-top: 20px;
+}

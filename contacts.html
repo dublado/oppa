@@ -1,0 +1,617 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Oppa! Design para todos </title>
+	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>
+
+	/*fim:THUMBS PRODUTOS*/
+	var cores =  ["rgb(73, 73, 81)","rgb(81, 181, 110)","rgb(90, 191, 203)","rgb(255, 173, 0)","rgb(131, 107, 170)","rgb(242, 242, 244)"];
+	function change_bgcolor(vseletor,vcor)
+	{
+		oseletor = $(vseletor).parent().parent().attr('id');
+
+		cor = $("#"+oseletor).css('background-color');
+		corindice = (cores.indexOf(cor));
+		switch(vcor)
+		{
+			case "left":
+
+			if( (corindice <= 0 ) ){
+				corindice = cores.length-1;
+			}
+				else{corindice--;
+			}
+
+			break;
+			case "right":
+
+			if( (corindice >= (cores.length-1) || (corindice==-1) ) ){
+				corindice = 0;
+			}
+			else{corindice++;}
+			break;
+		}
+		vcor = cores[corindice];
+		console.log(cor);
+		console.log(corindice);
+		console.log(vcor);
+		console.log(oseletor);
+		$( '#'+ oseletor ).css('background-color',vcor);
+	}
+	/*fim:THUMBS PRODUTOS*/
+
+
+
+	$(document).ready(function() 
+	{
+		/*THUMBS PRODUTOS*/
+		$('.thumb_prod').each(function(){
+			$(this).hover(function(){
+				$('.botao', this).show();
+				$('.info_prod', this).slideUp('fast');
+				$('.bx_vr_details', this).slideDown('fast');
+			}, function(){
+				$('.botao', this).hide();
+				$('.info_prod', this).slideDown();
+				$('.bx_vr_details', this).slideUp();
+			});
+		});
+
+
+		/*MENU CATEGOTIA*/
+		$('#down_btn').click(function()
+		{
+			vthis = $('#menu');
+			vthis_cnt = $('#menu #menu_cnt');
+			if(!vthis.attr('data-clicado'))
+			{
+				vthis.animate(
+				{
+					height : 244
+				}, 'fast');
+
+				vthis.attr('data-clicado', 'true');
+
+				vthis_cnt.fadeIn();
+			}
+			else
+			{
+				vthis_cnt.css('display','none');
+
+				vthis.removeAttr('data-clicado');
+
+				vthis.animate(
+				{
+					height : 0
+				}, 'fast');
+
+			}
+		});
+
+	});
+</script>
+
+
+
+<style type="text/css">
+<!--
+
+.page-title, .page-head, .page-head-alt {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px dotted #C7C7C7;
+    clear: both;
+    margin-bottom: 10px;
+    padding: 25px 0;
+    position: relative;
+    text-align: left;
+    text-indent: 0;
+    text-transform: inherit;
+    width: 100%;
+}
+.page-title h1, .page-title h2, .page-title h3, .page-head h1, .page-head h2, .page-head h3, .page-head-alt h1, .page-head-alt h2, .page-head-alt h3 {
+    color: black;
+    font: 30px/1em "BauerBodoniBlackItalicBTBlkIt",georgia;
+    text-transform: inherit;
+}
+
+h1.titulo{margin-bottom:20px;font:30px/1em BauerBodoniBlackItalicBTBlkIt,georgia;background:url(http://s3.amazonaws.com/doit-oppa/73.bg.png) repeat-x scroll 0 53px transparent;line-height:60px;float:left;width:96%;padding:0 2%}
+
+
+#messages_product_view {
+    clear: both;
+    margin: 0 -20px;
+    position: relative;
+    z-index: 1;
+}
+#messages_product_view .messages {
+    margin: 0 0 1px;
+}
+#messages_product_view .messages li {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+#contactForm .buttons-set button.button{background:url('images/sprite.png') -646px -35px;color:white;display:block;font-family:"FuturaMedium",sans-serif;font-size:20px;height:45px;text-indent:-16px;line-height:45px;padding:0;margin-right:-1px;position:relative;text-align:center;text-decoration:none;text-transform:uppercase; margin-right:275px; float:right; border:0;}
+
+#contactForm .buttons-set button.button span,.contacts-index-index #contactForm .buttons-set button.button span span{color:#fff;padding:0;width:239px;padding:0;font:normal 17px "FuturaMedium",sans-serif !important;text-transform:uppercase;background:none}
+
+.contacts-index-index #contactForm .buttons-set button.button {
+    background: url("../images/sprite.png") repeat scroll -646px -35px transparent;
+    color: white;
+    display: block;
+    font-family: "FuturaMedium",sans-serif;
+    font-size: 20px;
+    height: 45px;
+    line-height: 45px;
+    margin-right: -1px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-indent: -16px;
+    text-transform: uppercase;
+}
+a.button, button.button span {
+    background-position: 0 0;
+    border: 0 none;
+    color: #C73615;
+    cursor: pointer;
+    display: inline-block;
+    height: 21px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    text-decoration: none;
+}
+
+.contacts-index-index #contactForm .buttons-set button.button span, .contacts-index-index #contactForm .buttons-set button.button span span {
+    background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font: 17px "FuturaMedium",sans-serif !important;
+    padding: 0;
+    text-transform: uppercase;
+    width: 239px;
+}
+
+
+form { display: inline; }
+.fieldset { font-size:12px; margin:0 0 16px; }
+ul, ol { list-style:none outside none; }	
+
+.form-list label {
+    color: #444444;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 15px 0 0;
+    text-align: right;
+    width: 225px;
+}
+..required em { margin-right:4px; color:#F15C22; }
+.form-list .value {
+    float: left;
+    padding: 2px 0 0;
+}
+.form-list .note {
+    clear: both;
+    font-size: 11px;
+    margin: 0;
+    padding: 3px 0 0 240px;
+    width: 380px;
+}
+.form-list span.label {
+    font-weight: normal;
+}
+.form-list .input-box {
+    float: left;
+    margin-bottom:10px;
+}
+.form-list .input-box a {
+    font-size: 11px;
+    margin-top: 4px;
+}
+.form-list input.input-text, .form-list textarea {
+    float: left;
+    vertical-align: top;
+    width: 374px;
+}
+.input.input-text, textarea {
+	background:url("../images/bkg_input.gif") repeat-x scroll 0 0 #FFFFFF;
+	padding:2px;
+}
+input.input-text, select, textarea {
+    background: url("../images/bkg_input.gif") repeat-x scroll 0 0 #FFFFFF;
+    border: 1px solid #C7C7C7;
+}
+
+.form-list textarea {
+    height: 13em;
+    width: 374px;
+}
+.form-list select {
+    float: left;
+    vertical-align: top;
+    width: 380px;
+}
+.form-list p {
+    margin: 0;
+    padding: 0 0 0 240px;
+}
+
+p.required {
+    color: #F02800;
+    font-size: 11px;
+    margin: 0;
+    padding: 5px 0 7px;
+    text-align: right;
+    width: 620px;
+}
+
+
+.product-options dt:after, #bundleProduct:after, .events-slider:after, .product-image-popup .nav:after, .gift-item:after, .block-content:after, .block-list li.item:after, .block-poll li:after, .currently li:after, .order-info:after, .top-cart .actions:after, .header .quick-access:after, .product-view .box-related li.item:after, .bundle-summary .product:after, .collateral-tabs:after, .block-cart .block-content .item:after, .clearer:after, .header-container:after, .header-container .top-container:after, .header:after, .header-panel:after, #nav:after, .main:after, .footer-before-container:after, .footer-container:after, .footer:after, .col-main:after, .col2-set:after, .col3-set:after, .col4-set:after, .search-autocomplete li:after, .block li.item:after, .block .actions:after, .mini-products-list li:after, .cms-index-index .block-featured li.item:after, .title-buttons:after, .pager:after, .sorter:after, .ratings:after, .add-to-box:after, .add-to-cart:after, .products-grid:after, .products-list li.item:after, .product-view:after, .product-view .product-img-box .more-views ul:after, .product-view .box-tags .form-add-tags:after, .product-options .options-list li:after, .options-container-small .product-options:after, .product-options-bottom:after, .product-review:after, .box-collateral:after, .box-collateral .box-content:after, .collateral-tabs .tab-content:after, .account-login:after, .cart .cart-collaterals:after, .cart:after, .opc .step-title:after, .checkout-progress:after, .form-list li:after, .form-list li.fields .field:after, .clearfix:after, .buttons-set:after, .buttons-set2:after, .page-print .print-head:after, .new-product-spotlight .more-new .item:after, .addresses-list .col-2 li:after, .product-view .product-shop:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+h3 { outline:none }
+h3 a { text-decoration:none; outline:none }
+h3 a:hover { color:#ff3d32;  }
+
+-->
+</style>
+
+
+
+</head>
+<body class="cms-quem-somos">
+
+	<!-- HEADER -->
+	<div id="nav_bar">
+		<div id="nav_bar_in">
+			<!-- LOGO OPPA -->
+			<a href="http://www.oppa.com.br"><img src="images/oppa.png" alt="Oppa" title="Oppa" class="logo_oppa_t f_lft"></a>
+			<!-- fim:LOGO OPPA -->
+			
+			<!-- LOGADO / DESLOGADO -->
+			<div class="bx001 f_lft">
+				Bom dia, Fernanda Silvestre Silva! <a href="javascript:void(0)">Acessa com outro usuário</a>
+			</div>
+			<!-- fim:LOGADO / DESLOGADO -->
+
+			<!-- BOTÃO CARRINHO DE COMPRA -->
+			<div class="bx005 f_rgt">
+				<a href="javascript:void(0)"><img src="images/btn_car.png"></a>
+			</div>
+			<!-- fim:BOTÃO CARRINHO DE COMPRA -->
+
+			<!-- ATENDIMENTO -->
+			<div class="bx004 f_rgt">
+				<img src="images/icon_atend.png" class="icon_0001">&nbsp; Atendimento 11 4063.6772
+			</div>
+			<!-- fim:ATENDIMENTO -->
+
+			<!-- MEUS PEDIDOS -->
+			<div class="bx003 f_rgt">
+				<a href="javascript:void(0)">Meus Pedidos</a>
+			</div>
+			<!-- fim:MEUS PEDIDOS -->
+
+			<!-- MEU CADASTRO -->
+			<div class="bx002 f_rgt">
+				<a href="javascript:void(0)">Meu Cadastro</a>
+			</div>
+			<!-- fim:MEU CADASTRO -->
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:HEADER -->
+
+<!-- MENU PRODUTOS -->
+	<div id="menu">
+		<div id="menu_cnt">
+
+			<!-- COLUNA PRODS DISPONIVEIS -->
+			<div class="cat_mn_01 f_lft">
+				<div class="tlt_ct_mn">PRODUTOS DISPONÍVEIS</div>
+				
+				<div class="cat_mn_01_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_01_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA PRODS DISPONIVEIS -->
+
+			<!-- COLUNA CATEGORIAS -->
+			<div class="cat_mn_02 f_lft">
+				<div class="tlt_ct_mn">CATEGORIAS</div>
+
+				<div class="cat_mn_02_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkkkkkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="cat_mn_02_00_2 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+
+				<div class="both"></div>
+			</div>
+			<!-- fim:COLUNA CATEGORIAS -->
+
+			<!-- COLUNA LANÇAMENTO -->
+			<div class="cat_mn_03 f_lft">
+				<div class="tlt_ct_mn">LANÇAMENTOS</div>
+
+
+				<div class="cat_mn_03_00_1 f_lft">
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+					<br />
+					<a href="javascript:void(0)" class="lnk_ctmn">Kkkkkk</a>
+				</div>
+			</div>
+			<!-- fim:COLUNA LANÇAMENTO -->
+
+
+			<div class="both"></div>
+
+		</div>
+	</div>
+
+	<!-- BOTAO MENU -->
+	<div id="down">
+		<div id="down_cnt">
+			<img src="images/img_prdcat.png" id="down_btn">
+		</div>
+	</div>
+	<!-- fim:BOTAO MENU -->
+<!-- fim:MENU PRODUTOS -->
+
+	<!-- CONTEÚDO -->
+	<div id="content font11px">
+		<div id="content_cnt">
+			
+			<!-- BREADCRUMB -->
+			<div class="breadcrumb">
+				<a href="javascript:void(0)">home</a>
+				<img src="images/set_bc.jpg">
+				poltronas
+			</div>
+			<!-- fim:BREADCRUMB -->
+
+			<br />
+
+
+
+
+
+
+
+
+
+
+            	
+	
+	<div class="col-main">
+            	
+				
+            <div class="page-title">
+			    <h1>Fale conosco</h1>
+			</div>
+			
+			<div id="messages_product_view"></div>
+			
+			<form method="post" id="contactForm" action="http://www.oppa.com.br/contacts/index/post/">
+			    <div class="fieldset">
+			        <ul class="form-list">
+			            <li class="fields">
+			                <div class="field">
+			                    <label class="required" for="name"><em>*</em>Nome</label>
+			                    <div class="input-box">
+			                        <input type="text" class="input-text required-entry" value="" title="Nome" id="name" name="name">
+			                    </div>
+			                </div>
+			                <div class="field">
+			                    <label class="required" for="email"><em>*</em>E-mail</label>
+			                    <div class="input-box">
+			                        <input type="text" class="input-text required-entry validate-email" value="" title="E-mail" id="email" name="email">
+			                    </div>
+			                </div>
+			            </li>
+			            <li class="fields">
+			                <div class="field">
+			                    <label for="telephone">Telefone</label>
+			                    <div class="input-box">
+			                        <input type="text" class="input-text" value="" title="Telefone" id="telephone" name="telephone">
+			                    </div>
+			                </div>
+			            </li>
+			            <li>
+			                <label class="required" for="comment"><em>*</em>Comentários</label>
+			                <div class="input-box">
+			                    <textarea rows="3" cols="5" class="required-entry input-text" title="Comentários" id="comment" name="comment"></textarea>
+			                </div>
+			            </li>
+			        </ul>
+			    </div>
+
+			    <div class="buttons-set form-buttons btn-only">
+			        <input type="text" style="display:none !important;" value="" id="hideit" name="hideit">
+			        <button title="Enviar" class="button" type="submit"><span><span>Enviar</span></span></button>
+			    </div>
+
+			    <p class="required">* Campos obrigatórios</p>
+			</form>
+
+			<script type="text/javascript">
+			//&lt;![CDATA[
+			    var contactForm = new VarienForm('contactForm', true);
+			//]]&gt;
+			</script>
+
+    </div>			
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<br />
+
+			<div class="menu_02">
+				<a href="javascript:void(0)">QUEM SOMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">COMO TRABALHAMOS</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">BLOG</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">IMPRENSA</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href="javascript:void(0)">DESIGNERS</a>
+			</div>
+
+		</div>
+	</div>
+	<!-- fim:CONTEÚDO -->
+
+	<!-- FOOTER 01 -->
+	<div id="footer">
+		<div id="footer_cnt">
+			<div class="f_rgt"><a href="javascript:void(0)" class="terms">Termos e condições gerais do site</a></div>
+
+			<span class="tlt_f01">OPPA, sua loja de móveis on-line!</span>
+			<br /><br />
+			<p class="descr_ftr01" style="">A <strong>Oppa</strong> é uma empresa
+				especializada no comércio eletrônico de móveis e objetos decorativos
+				para mobiliar sua casa. Com a <strong>Oppa</strong> é fácil, rápido e
+				prático fazer suas compras on-line.&nbsp; Fazemos questão de garantir
+				grande variedade de móveis para os ambientes da sua casa, vendidos a
+				preços acessíveis e feitos com materiais de qualidade. Em nossa loja
+				virtual, entre outros produtos, você poderá encontrar: sofás, cadeiras,
+				poltronas, mesas, armários, estantes, escrivaninhas, camas de casal ou
+				solteiro, móveis para a sala, móveis para escritório e móveis para
+				dormitórios.&nbsp; Os projetos são únicos e feitos por jovens
+				brasileiros e também por designers renomados. Acreditamos no smart
+				design e em peças inovadoras. Obrigada por escolher a <strong>Oppa</strong>
+				para decorar a sua casa!
+			</p>
+			<br />
+			<p class="fnt12px">2011 &reg; Oppa Design Ltda.</p>
+			<br /><br />
+
+			<div class="col_f_001 f_lft">
+					
+				<span class="tlt_f_2">PAGAMENTO</span>
+				<br /><br />
+				<div>
+					<img src="images/carts.jpg"> &nbsp; &nbsp; <img src="images/carts_2.jpg">
+				</div>
+			</div>
+
+			<div class="col_f_002 f_lft">
+					
+				<span class="tlt_f_2">ATENDIMENTO AO CLIENTE</span>
+				<br /><br />
+				<div>
+					<img src="images/icon_atend2.jpg"> SAC 3081.1924
+					<br />
+					<img src="images/icon_mail2.jpg"> suporte@oppa.com.br
+				</div>
+			</div>
+
+			<div class="col_f_003 f_lft">
+					
+				<span class="tlt_f_2">100% DE SATISFAÇÃO</span>
+				<br /><br />
+				
+				<div class="col1finok f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">TROCAS E DEVOLUÇÕES</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SEGURANÇA E PRIVACIDADE</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">GARANTIA DE PRODUÇÃO</a>
+					<br />	
+				</div>
+				
+				<div class="col1finok2 f_lft">
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">SERVIÇO DE ENTREGA</a>
+					<br />
+					<img src="images/set_verd.jpg"> <a href="javascript:void(0)">REGRAS DE VANTAGENS</a>
+				</div>
+				
+				<div class="both"></div>
+			</div>
+
+			<div class="both"></div>
+		</div>
+	</div>
+	<!-- fim:FOOTER 01 -->
+
+	<!-- FOOTER 02 -->
+	<div id="footer_2">
+		<div id="footer_cnt_2">
+			<div class="dv_rds_scs f_rgt">
+				<a href="javascript:void(0)"><img src="images/icon_face.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_twitter.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_orkut.png"></a> &nbsp; &nbsp; 
+				<a href="javascript:void(0)"><img src="images/icon_gplus.png"></a>
+			</div>
+
+			<form>
+				Informe seu e-mail e faça seu cadastro: &nbsp; &nbsp; 
+				<input type="text" name="email" class="mail_ftr" />
+				<input type="image" name="send" src="images/btn_snd.png" class="btnsnd" />
+			</form>
+		</div>
+	</div>
+	<!-- fim:FOOTER 02 -->
+
+</body>
+</html>
